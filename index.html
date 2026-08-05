@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#6c2bd9" />
+  <title>Jackie's 2K Squad Finder</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand">
+        <div class="brand-ball">🏀</div>
+        <div>
+          <h1>JACKIE'S</h1>
+          <p>2K SQUAD FINDER</p>
+        </div>
+      </div>
+
+      <nav id="mainNav">
+        <button class="nav-link active" data-page="home">⌂ <span>Home</span></button>
+        <button class="nav-link" data-page="squad">👥 <span>Squad Finder</span></button>
+        <button class="nav-link" data-page="builds">📖 <span>Build Vault</span></button>
+        <button class="nav-link" data-page="community">🌎 <span>Community Builds</span></button>
+        <button class="nav-link" data-page="challenges">⚔️ <span>Squad Challenges</span></button>
+        <button class="nav-link" data-page="stats">📊 <span>Player Stats</span></button>
+        <button class="nav-link" data-page="admin">👑 <span>Admin</span></button>
+      </nav>
+
+      <div class="sidebar-footer">
+        <button id="adminToggle" class="small-btn">Demo Admin: OFF</button>
+        <p>Pink. Purple. Competitive.</p>
+      </div>
+    </aside>
+
+    <main class="content">
+      <header class="topbar">
+        <button id="menuBtn" class="icon-btn">☰</button>
+        <div class="search-wrap">
+          <input id="globalSearch" type="search" placeholder="Search players, builds, positions..." />
+        </div>
+        <button id="openProfileBtn" class="profile-btn">SVC1717</button>
+      </header>
+
+      <section id="home" class="page active">
+        <div class="hero">
+          <div class="hero-copy">
+            <span class="eyebrow">THE COMMUNITY COURT</span>
+            <h2>Find your squad.<br><span>Build your legacy.</span></h2>
+            <p>Connect with Rec, 2s, 3s, 5s and Pro-Am players. Share builds, compare stats and challenge squads.</p>
+            <div class="hero-actions">
+              <button class="primary-btn" data-go="squad">Find Players</button>
+              <button class="ghost-btn" data-go="builds">Open My Vault</button>
+            </div>
+          </div>
+          <div class="hero-card">
+            <div class="silhouette">🏀</div>
+            <h3>SVC'S 2K SEASON</h3>
+            <p>Not just a man's world.</p>
+            <strong>I compete because I belong.</strong>
+          </div>
+        </div>
+
+        <div class="section-heading">
+          <div><span class="eyebrow">LIVE BOARD</span><h3>Players Looking Now</h3></div>
+          <button class="text-btn" data-go="squad">View all →</button>
+        </div>
+        <div id="homePlayers" class="card-grid"></div>
+
+        <div class="stats-strip">
+          <div><strong id="playerCount">0</strong><span>Players</span></div>
+          <div><strong id="buildCount">0</strong><span>Builds</span></div>
+          <div><strong id="challengeCount">0</strong><span>Challenges</span></div>
+          <div><strong>24</strong><span>Cap Breakers</span></div>
+        </div>
+      </section>
+
+      <section id="squad" class="page">
+        <div class="page-title">
+          <div><span class="eyebrow">TEAM UP</span><h2>Squad Finder</h2></div>
+          <button id="addPlayerBtn" class="primary-btn">+ Post Looking for Squad</button>
+        </div>
+
+        <div class="filter-bar">
+          <select id="modeFilter">
+            <option value="all">All Modes</option><option>Rec</option><option>2s</option><option>3s</option><option>5s</option><option>Pro-Am</option>
+          </select>
+          <select id="positionFilter">
+            <option value="all">All Positions</option><option>PG</option><option>SG</option><option>SF</option><option>PF</option><option>C</option>
+          </select>
+          <select id="micFilter">
+            <option value="all">Mic: Any</option><option value="yes">Mic Required</option><option value="no">No Mic Needed</option>
+          </select>
+        </div>
+        <div id="playerGrid" class="card-grid"></div>
+      </section>
+
+      <section id="builds" class="page">
+        <div class="page-title">
+          <div><span class="eyebrow">MY COLLECTION</span><h2>Jackie's Build Vault</h2></div>
+          <button id="addBuildBtn" class="primary-btn">+ Add Build</button>
+        </div>
+        <div id="vaultGrid" class="build-grid"></div>
+      </section>
+
+      <section id="community" class="page">
+        <div class="page-title">
+          <div><span class="eyebrow">COMMUNITY LAB</span><h2>Community Builds</h2></div>
+          <button id="submitCommunityBtn" class="primary-btn">+ Submit Build</button>
+        </div>
+        <div class="filter-bar">
+          <select id="buildPositionFilter">
+            <option value="all">All Positions</option><option>PG</option><option>SG</option><option>SF</option><option>PF</option><option>C</option>
+          </select>
+          <select id="approvedFilter">
+            <option value="all">All Builds</option><option value="approved">Jackie's Approved</option><option value="pending">Pending</option>
+          </select>
+        </div>
+        <div id="communityGrid" class="build-grid"></div>
+      </section>
+
+      <section id="challenges" class="page">
+        <div class="page-title">
+          <div><span class="eyebrow">BRING YOUR BEST</span><h2>Your Squad Has Been Challenged</h2></div>
+          <button id="newChallengeBtn" class="primary-btn">+ Create Challenge</button>
+        </div>
+        <div id="challengeGrid" class="challenge-grid"></div>
+      </section>
+
+      <section id="stats" class="page">
+        <div class="page-title">
+          <div><span class="eyebrow">PERFORMANCE</span><h2>Player Stats</h2></div>
+        </div>
+        <div class="stat-hero">
+          <div class="avatar">17</div>
+          <div>
+            <h3>SVC1717</h3>
+            <p>PS5 • New York • Rec / 5s</p>
+            <span class="approved-badge">OWNER</span>
+          </div>
+        </div>
+        <div id="statCards" class="stat-cards"></div>
+        <div class="panel">
+          <h3>Build Performance</h3>
+          <div id="statsTable" class="table-wrap"></div>
+        </div>
+      </section>
+
+      <section id="admin" class="page">
+        <div class="page-title">
+          <div><span class="eyebrow">CONTROL ROOM</span><h2>Admin & Co-Admin</h2></div>
+        </div>
+        <div id="adminLocked" class="locked-panel">
+          <div class="lock-icon">🔒</div>
+          <h3>Admin access is off</h3>
+          <p>Use the “Demo Admin” button at the bottom of the sidebar to preview approvals and management tools.</p>
+        </div>
+        <div id="adminPanel" class="admin-panel hidden">
+          <div class="admin-grid">
+            <div class="panel"><h3>Pending Build Approvals</h3><div id="pendingBuilds"></div></div>
+            <div class="panel"><h3>Member Management</h3><div id="memberList"></div></div>
+            <div class="panel full"><h3>Post Announcement</h3><textarea id="announcementText" placeholder="Write a community announcement..."></textarea><button id="postAnnouncement" class="primary-btn">Post Announcement</button><div id="announcementResult"></div></div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div id="modal" class="modal hidden">
+    <div class="modal-card">
+      <button id="closeModal" class="modal-close">×</button>
+      <div id="modalContent"></div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
